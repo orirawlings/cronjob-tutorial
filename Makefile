@@ -1,8 +1,10 @@
 
 # Image URL to use all building/pushing image targets
 IMG ?= controller:latest
-# Produce CRDs that work back to Kubernetes 1.11 (no version conversion)
-CRD_OPTIONS ?= "crd:trivialVersions=true"
+
+# TODO (orirawlings): Ideally we could include full descriptions, but it causes
+# kubectl apply to fail because of https://github.com/kubernetes/kubernetes/issues/82292
+CRD_OPTIONS ?= "crd:preserveUnknownFields=false,maxDescLen=0"
 
 # Get the currently used golang install path (in GOPATH/bin, unless GOBIN is set)
 ifeq (,$(shell go env GOBIN))

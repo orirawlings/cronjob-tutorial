@@ -27,6 +27,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
 	batchv1 "github.com/orirawlings/cronjob-tutorial/api/v1"
+	batchv2 "github.com/orirawlings/cronjob-tutorial/api/v2"
 	"github.com/orirawlings/cronjob-tutorial/controllers"
 	// +kubebuilder:scaffold:imports
 )
@@ -40,6 +41,7 @@ func init() {
 	_ = clientgoscheme.AddToScheme(scheme)
 
 	_ = batchv1.AddToScheme(scheme)
+	_ = batchv2.AddToScheme(scheme)
 	// +kubebuilder:scaffold:scheme
 }
 
